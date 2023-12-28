@@ -1,141 +1,298 @@
-import type { MetaFunction } from "@remix-run/node";
-import { Link } from "@remix-run/react";
+import { ChevronDown } from "~/components/chevron-down";
+import { ChevronLeft } from "~/components/chevron-left";
+import { ChevronRight } from "~/components/chevron-right";
+import { Discord } from "~/components/discord";
+import { Instagram } from "~/components/instagram";
+import { Lock } from "~/components/lock";
+import { Minecraft } from "~/components/minecraft";
+import { Reddit } from "~/components/reddit";
+import { Search } from "~/components/search";
+import { Tiktok } from "~/components/tiktok";
+import { Twitter } from "~/components/twitter";
 
-import { useOptionalUser } from "~/utils";
+const dropdowns = [
+  {
+    icon: <Instagram />,
+    name: "instagram",
+    label: "Instagram",
+  },
+  {
+    icon: <Discord />,
+    name: "discord",
+    label: "Discord",
+  },
+  {
+    icon: <Minecraft />,
+    name: "minecraft",
+    label: "Minecraft",
+  },
+  {
+    icon: <Twitter />,
+    name: "twitter",
+    label: "Twitter",
+  },
+  {
+    icon: <Tiktok />,
+    name: "tiktok",
+    label: "Tiktok",
+  },
+];
 
-export const meta: MetaFunction = () => [{ title: "Remix Notes" }];
-
-export default function Index() {
-  const user = useOptionalUser();
+export default function Profile() {
   return (
-    <main className="relative min-h-screen bg-white sm:flex sm:items-center sm:justify-center">
-      <div className="relative sm:pb-16 sm:pt-8">
-        <div className="mx-auto max-w-7xl sm:px-6 lg:px-8">
-          <div className="relative shadow-xl sm:overflow-hidden sm:rounded-2xl">
-            <div className="absolute inset-0">
-              <img
-                className="h-full w-full object-cover"
-                src="https://user-images.githubusercontent.com/1500684/158276320-c46b661b-8eff-4a4d-82c6-cf296c987a12.jpg"
-                alt="BB King playing blues on his Gibson 'Lucille' guitar"
-              />
-              <div className="absolute inset-0 bg-[color:rgba(27,167,254,0.5)] mix-blend-multiply" />
-            </div>
-            <div className="relative px-4 pb-8 pt-16 sm:px-6 sm:pb-14 sm:pt-24 lg:px-8 lg:pb-20 lg:pt-32">
-              <h1 className="text-center text-6xl font-extrabold tracking-tight sm:text-8xl lg:text-9xl">
-                <span className="block uppercase text-blue-500 drop-shadow-md">
-                  Blues Stack
-                </span>
-              </h1>
-              <p className="mx-auto mt-6 max-w-lg text-center text-xl text-white sm:max-w-3xl">
-                Check the README.md file for instructions on how to get this
-                project deployed.
-              </p>
-              <div className="mx-auto mt-10 max-w-sm sm:flex sm:max-w-none sm:justify-center">
-                {user ? (
-                  <Link
-                    to="/notes"
-                    className="flex items-center justify-center rounded-md border border-transparent bg-white px-4 py-3 text-base font-medium text-blue-700 shadow-sm hover:bg-blue-50 sm:px-8"
-                  >
-                    View Notes for {user.email}
-                  </Link>
-                ) : (
-                  <div className="space-y-4 sm:mx-auto sm:inline-grid sm:grid-cols-2 sm:gap-5 sm:space-y-0">
-                    <Link
-                      to="/join"
-                      className="flex items-center justify-center rounded-md border border-transparent bg-white px-4 py-3 text-base font-medium text-blue-700 shadow-sm hover:bg-blue-50 sm:px-8"
-                    >
-                      Sign up
-                    </Link>
-                    <Link
-                      to="/login"
-                      className="flex items-center justify-center rounded-md bg-blue-500 px-4 py-3 font-medium text-white hover:bg-blue-600"
-                    >
-                      Log In
-                    </Link>
-                  </div>
-                )}
+    <section className="mb-[300px]">
+      <div className="mt-24 mx-4 sm:mt-[111px] sm:mx-[100px] p-4 bg-lightgray border-[0.5px] border-lightgrayborder flex flex-col sm:flex-row gap-4">
+        <div className="flex sm:flex-1 flex-col gap-4">
+          {dropdowns.map((dropdown) => (
+            <div className="flex gap-2" key={dropdown.name}>
+              <div className="flex-1 flex items-center p-[10px] justify-between gap-2 border border-lightgrayborder">
+                {dropdown.icon}
+                <p className="flex-1 text-[10px] font-bold text-white tracking-[0.2px]">
+                  {dropdown.label}
+                </p>
+                <ChevronDown />
               </div>
-              <a href="https://remix.run">
-                <img
-                  src="https://user-images.githubusercontent.com/1500684/158298926-e45dafff-3544-4b69-96d6-d3bcc33fc76a.svg"
-                  alt="Remix"
-                  className="mx-auto mt-16 w-full max-w-[12rem] md:max-w-[16rem]"
-                />
-              </a>
+              <input
+                type="text"
+                name={dropdown.name}
+                className="flex-1 rounded-[5px] p-[10px] leading-[14px] tracking-[0.5px] text-white border-[0.5px] border-lightgrayborder bg-lightergray text-[10px] font-medium"
+                placeholder="@username"
+              />
             </div>
-          </div>
+          ))}
         </div>
-
-        <div className="mx-auto max-w-7xl px-4 py-2 sm:px-6 lg:px-8">
-          <div className="mt-6 flex flex-wrap justify-center gap-8">
-            {[
-              {
-                src: "https://user-images.githubusercontent.com/1500684/157764397-ccd8ea10-b8aa-4772-a99b-35de937319e1.svg",
-                alt: "Fly.io",
-                href: "https://fly.io",
-              },
-              {
-                src: "https://user-images.githubusercontent.com/1500684/158238105-e7279a0c-1640-40db-86b0-3d3a10aab824.svg",
-                alt: "PostgreSQL",
-                href: "https://www.postgresql.org/",
-              },
-              {
-                src: "https://user-images.githubusercontent.com/1500684/157764484-ad64a21a-d7fb-47e3-8669-ec046da20c1f.svg",
-                alt: "Prisma",
-                href: "https://prisma.io",
-              },
-              {
-                src: "https://user-images.githubusercontent.com/1500684/157764276-a516a239-e377-4a20-b44a-0ac7b65c8c14.svg",
-                alt: "Tailwind",
-                href: "https://tailwindcss.com",
-              },
-              {
-                src: "https://user-images.githubusercontent.com/1500684/157764454-48ac8c71-a2a9-4b5e-b19c-edef8b8953d6.svg",
-                alt: "Cypress",
-                href: "https://www.cypress.io",
-              },
-              {
-                src: "https://user-images.githubusercontent.com/1500684/157772386-75444196-0604-4340-af28-53b236faa182.svg",
-                alt: "MSW",
-                href: "https://mswjs.io",
-              },
-              {
-                src: "https://user-images.githubusercontent.com/1500684/157772447-00fccdce-9d12-46a3-8bb4-fac612cdc949.svg",
-                alt: "Vitest",
-                href: "https://vitest.dev",
-              },
-              {
-                src: "https://user-images.githubusercontent.com/1500684/157772662-92b0dd3a-453f-4d18-b8be-9fa6efde52cf.png",
-                alt: "Testing Library",
-                href: "https://testing-library.com",
-              },
-              {
-                src: "https://user-images.githubusercontent.com/1500684/157772934-ce0a943d-e9d0-40f8-97f3-f464c0811643.svg",
-                alt: "Prettier",
-                href: "https://prettier.io",
-              },
-              {
-                src: "https://user-images.githubusercontent.com/1500684/157772990-3968ff7c-b551-4c55-a25c-046a32709a8e.svg",
-                alt: "ESLint",
-                href: "https://eslint.org",
-              },
-              {
-                src: "https://user-images.githubusercontent.com/1500684/157773063-20a0ed64-b9f8-4e0b-9d1e-0b65a3d4a6db.svg",
-                alt: "TypeScript",
-                href: "https://typescriptlang.org",
-              },
-            ].map((img) => (
-              <a
-                key={img.href}
-                href={img.href}
-                className="flex h-16 w-32 justify-center p-1 grayscale transition hover:grayscale-0 focus:grayscale-0"
-              >
-                <img alt={img.alt} src={img.src} className="object-contain" />
-              </a>
-            ))}
-          </div>
+        <div className="flex sm:flex-1 flex-col gap-4">
+          {dropdowns.map((dropdown) => (
+            <div
+              className=" border-[0.5px] border-lightgrayborder relative"
+              key={dropdown.name}
+            >
+              <div className="flex gap-2 blur-[8px]">
+                <div className="flex-1 flex items-center p-[10px] justify-between gap-2 border border-lightgrayborder">
+                  {dropdown.icon}
+                  <p className="flex-1 text-[10px] font-bold text-white tracking-[0.2px]">
+                    {dropdown.label}
+                  </p>
+                  <ChevronDown />
+                </div>
+                <input
+                  type="text"
+                  disabled
+                  name={dropdown.name}
+                  className="flex-1 rounded-[5px] p-[10px] leading-[14px] tracking-[0.5px] text-white border-[0.5px] border-lightgrayborder bg-lightergray text-[10px] font-medium"
+                  placeholder="@username"
+                />
+              </div>
+              <div className="absolute inset-0 flex items-center justify-center">
+                <div className="rounded-full px-3 py-[6px] border border-purple flex items-center justify-center gap-1">
+                  <p className="text-[9px] font-bold text-purple">UNLOCK</p>
+                  <Lock />
+                </div>
+              </div>
+            </div>
+          ))}
         </div>
       </div>
-    </main>
+
+      <div className="pt-6">
+        <button
+          type="button"
+          className="rounded-full px-4 py-3 w-fit bg-purple mx-auto flex items-center justify-center gap-2"
+        >
+          <p className="text-white text-[10px] font-bold tracking-[0.5px] leading-none">
+            SNOOP
+          </p>
+          <Search />
+        </button>
+      </div>
+
+      <div className="pt-[60px] mx-4 sm:mx-[100px]">
+        <p className="text-base font-semibold leading-[19px] tracking-[-0.36px] text-white">
+          Changes since last snoop
+        </p>
+        <p className="pt-2 text-[10px] leading-[14px] tracking-[0.5px] text-gray">
+          Updates since last snoop on may 12th 2023 10pm
+        </p>
+
+        <div className="flex pt-6 gap-[6px] overflow-x-auto -mx-4 pl-4 no-scrollbar">
+          {cards.map((card) => (
+            <div key={card.title} className="last-of-type:pr-4">
+              <Card
+                icon={card.icon}
+                title={card.title}
+                desc={card.desc}
+                detail={card.detail}
+              />
+            </div>
+          ))}
+        </div>
+
+        <div className="pt-10 flex items-center gap-4 sm:mx-3">
+          <p className="pr-2 text-xs leading-[14.4px] tracking-[0.7px] text-white font-medium">
+            Filter
+          </p>
+          <button
+            type="button"
+            className="bg-lightgray border-[0.5px] border-lightgrayborder text-white px-3 py-[6px] text-[10px] font-bold tracking-[0.2px]"
+          >
+            Daily
+          </button>
+          <button
+            type="button"
+            className="bg-purple border-[0.5px] border-purple text-white px-3 py-[6px] text-[10px] font-bold tracking-[0.2px]"
+          >
+            Weekly
+          </button>
+          <button
+            type="button"
+            className="bg-lightgray border-[0.5px] border-lightgrayborder text-white px-3 py-[6px] text-[10px] font-bold tracking-[0.2px]"
+          >
+            Monthly
+          </button>
+        </div>
+      </div>
+
+      <div className="mx-4 sm:mx-[100px] sm:hidden flex items-center justify-between pt-6">
+        <ChevronLeft />
+        <ChevronRight />
+      </div>
+
+      <div className="pt-6 flex pl-4 sm:pl-0 sm:mx-[100px] gap-[10px]">
+        <div className="hidden sm:block">
+          <ChevronLeft />
+        </div>
+        <div className="flex overflow-x-auto no-scrollbar gap-[10px]">
+          <div className="flex flex-col gap-[6px]">
+            <div className="min-w-[150px] mb-[2px] px-3 py-1 border border-lightgrayborder flex items-center justify-center">
+              <p className="text-white font-bold text-[10px] tracking-[0.2px]">
+                Mon 27.04.2023
+              </p>
+            </div>
+            <Card icon={<Twitter />} title="Twitter" desc="Made a tweet" />
+            <Card icon={<Discord />} title="Discord" desc="Avatar change" />
+          </div>
+          <div className="flex flex-col gap-[6px]">
+            <div className="min-w-[150px] mb-[2px] px-3 py-1 border border-purple bg-purple flex items-center justify-center">
+              <p className="text-white font-bold text-[10px] tracking-[0.2px]">
+                Tue 28.04.2023
+              </p>
+            </div>
+            <Card icon={<Twitter />} title="Twitter" desc="Made a tweet" />
+            <Card
+              icon={<Minecraft />}
+              title="Minecraft"
+              desc="+680 Hypixel EXP"
+            />
+            <Card icon={<Tiktok />} title="Twitter" desc="Added a new video" />
+            <Card icon={<Reddit />} title="Reddit" desc="+5 Upvotes" />
+            <Card icon={<Instagram />} title="Instagram" desc="-9 Followers" />
+          </div>
+          <div className="flex flex-col gap-[6px]">
+            <div className="min-w-[150px] mb-[2px] px-3 py-1 border border-lightgrayborder flex items-center justify-center">
+              <p className="text-lightgrayborder font-bold text-[10px] tracking-[0.2px]">
+                Wed 29.04.2023
+              </p>
+            </div>
+          </div>
+          <div className="flex flex-col gap-[6px]">
+            <div className="min-w-[150px] mb-[2px] px-3 py-1 border border-lightgrayborder flex items-center justify-center">
+              <p className="text-lightgrayborder font-bold text-[10px] tracking-[0.2px]">
+                Thu 30.04.2023
+              </p>
+            </div>
+          </div>
+          <div className="flex flex-col gap-[6px]">
+            <div className="min-w-[150px] mb-[2px] px-3 py-1 border border-lightgrayborder flex items-center justify-center">
+              <p className="text-lightgrayborder font-bold text-[10px] tracking-[0.2px]">
+                Fri 01.05.2023
+              </p>
+            </div>
+          </div>
+          <div className="flex flex-col gap-[6px]">
+            <div className="min-w-[150px] mb-[2px] px-3 py-1 border border-lightgrayborder flex items-center justify-center">
+              <p className="text-lightgrayborder font-bold text-[10px] tracking-[0.2px]">
+                Sat 02.05.2023
+              </p>
+            </div>
+          </div>
+          <div className="flex flex-col gap-[6px] pr-4 sm:pr-0">
+            <div className="min-w-[150px] mb-[2px] px-3 py-1 border border-lightgrayborder flex items-center justify-center">
+              <p className="text-lightgrayborder font-bold text-[10px] tracking-[0.2px]">
+                Sun 03.05.2023
+              </p>
+            </div>
+          </div>
+        </div>
+        <div className="hidden sm:block">
+          <ChevronRight />
+        </div>
+      </div>
+      <button
+        type="button"
+        className="my-[60px] w-fit mx-4 sm:mx-[100px] border border-purple p-3 text-purple text-[11px] font-bold tracking-[0.55px] uppercase rounded-full"
+      >
+        Clear socials and timeline history
+      </button>
+    </section>
   );
 }
+
+const Card = ({
+  icon,
+  title,
+  desc,
+  detail,
+}: {
+  icon: React.ReactNode;
+  title: string;
+  desc: string;
+  detail?: string;
+}) => (
+  <div className="min-w-[150px] p-2 flex flex-col gap-1 bg-lightgray border-[0.5px] border-lightgrayborder">
+    <div className="flex gap-2">
+      {icon}
+      <p className="text-xs font-bold text-white tracking-[0.24px]">{title}</p>
+    </div>
+    <p className="text-xs leading-[16.8px] tracking-[0.6px] text-white">
+      {desc}
+    </p>
+    {detail ? (
+      <p className="text-[10px] text-gray leading-[14px] tracking-[0.5px]">
+        {detail}
+      </p>
+    ) : null}
+  </div>
+);
+
+const cards = [
+  {
+    icon: <Twitter />,
+    title: "Twitter",
+    desc: "+4 Followers",
+    detail: "Sat 25.04.2023",
+  },
+  {
+    icon: <Minecraft />,
+    title: "Minecraft",
+    desc: "+680 Hypixel EXP",
+    detail: "Sat 25.04.2023",
+  },
+  {
+    icon: <Tiktok />,
+    title: "TikTok",
+    desc: "Added a new video",
+    detail: "Sat 25.04.2023",
+  },
+  {
+    icon: <Reddit />,
+    title: "Reddit",
+    desc: "+5 upvotes",
+    detail: "Sat 25.04.2023",
+  },
+  {
+    icon: <Instagram />,
+    title: "Instagram",
+    desc: "-9 Followers",
+    detail: "Sat 25.04.2023",
+  },
+];
