@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 import { ChevronDown } from "~/components/chevron-down";
 import { ChevronLeft } from "~/components/chevron-left";
 import { ChevronRight } from "~/components/chevron-right";
@@ -9,6 +11,12 @@ import { Reddit } from "~/components/reddit";
 import { Search } from "~/components/search";
 import { Tiktok } from "~/components/tiktok";
 import { Twitter } from "~/components/twitter";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+} from "~/components/ui/select";
 
 const dropdowns = [
   {
@@ -45,13 +53,8 @@ export default function Profile() {
         <div className="flex sm:flex-1 flex-col gap-4">
           {dropdowns.map((dropdown) => (
             <div className="flex gap-2" key={dropdown.name}>
-              <div className="flex-1 flex items-center p-[10px] justify-between gap-2 border border-lightgrayborder">
-                {dropdown.icon}
-                <p className="flex-1 text-[10px] font-bold text-white tracking-[0.2px]">
-                  {dropdown.label}
-                </p>
-                <ChevronDown />
-              </div>
+              <Dropdown options={dropdowns} defaultOption={dropdown} />
+
               <input
                 type="text"
                 name={dropdown.name}
@@ -296,3 +299,46 @@ const cards = [
     detail: "Sat 25.04.2023",
   },
 ];
+
+type Option = (typeof dropdowns)[number];
+
+const Dropdown = ({
+  options,
+  defaultOption,
+}: {
+  options: Option[];
+  defaultOption: Option;
+}) => {
+  const [option, setOption] = useState(defaultOption);
+  return (
+    <Select
+      value={option.name}
+      onValueChange={(value) => {
+        const newOption = options.find((option) => option.name === value);
+        if (newOption) {
+          setOption(newOption);
+        }
+      }}
+    >
+      <SelectTrigger className="w-[180px]">
+        {option.icon}
+        <p className="flex-1 text-[10px] font-bold text-white tracking-[0.2px] text-left">
+          {option.label}
+        </p>
+        <ChevronDown />
+      </SelectTrigger>
+      <SelectContent sideOffset={8}>
+        {options.map((option) => (
+          <SelectItem value={option.name} key={option.name}>
+            <div className="flex gap-2" key={option.name}>
+              {option.icon}
+              <p className="flex-1 text-[10px] font-bold text-white tracking-[0.2px]">
+                {option.label}
+              </p>
+            </div>
+          </SelectItem>
+        ))}
+      </SelectContent>
+    </Select>
+  );
+};
