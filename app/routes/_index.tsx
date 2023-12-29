@@ -58,7 +58,7 @@ export default function Profile() {
               <input
                 type="text"
                 name={dropdown.name}
-                className="flex-1 rounded-[5px] p-[10px] leading-[14px] tracking-[0.5px] text-white border-[0.5px] border-lightgrayborder bg-lightergray text-[10px] font-medium"
+                className="flex-1 rounded-[5px] p-[10px] leading-[14px] tracking-[0.5px] text-white border-[0.5px] border-lightgrayborder bg-lightergray text-sm font-medium"
                 placeholder="@username"
               />
             </div>
@@ -73,7 +73,7 @@ export default function Profile() {
               <div className="flex gap-2 blur-[8px]">
                 <div className="flex-1 flex items-center p-[10px] justify-between gap-2 border border-lightgrayborder">
                   {dropdown.icon}
-                  <p className="flex-1 text-[10px] font-bold text-white tracking-[0.2px]">
+                  <p className="flex-1 text-sm font-bold text-white tracking-[0.2px]">
                     {dropdown.label}
                   </p>
                   <ChevronDown />
@@ -82,7 +82,7 @@ export default function Profile() {
                   type="text"
                   disabled
                   name={dropdown.name}
-                  className="flex-1 rounded-[5px] p-[10px] leading-[14px] tracking-[0.5px] text-white border-[0.5px] border-lightgrayborder bg-lightergray text-[10px] font-medium"
+                  className="flex-1 rounded-[5px] p-[10px] leading-[14px] tracking-[0.5px] text-white border-[0.5px] border-lightgrayborder bg-lightergray text-sm font-medium"
                   placeholder="@username"
                 />
               </div>
@@ -102,7 +102,7 @@ export default function Profile() {
           type="button"
           className="rounded-full px-4 py-3 w-fit bg-purple mx-auto flex items-center justify-center gap-2"
         >
-          <p className="text-white text-[10px] font-bold tracking-[0.5px] leading-none">
+          <p className="text-white text-sm font-bold tracking-[0.5px] leading-none">
             SNOOP
           </p>
           <Search />
@@ -110,10 +110,10 @@ export default function Profile() {
       </div>
 
       <div className="pt-[60px] mx-4 sm:mx-[100px]">
-        <p className="text-base font-semibold leading-[19px] tracking-[-0.36px] text-white">
+        <p className="text-2xl font-semibold leading-[19px] tracking-[-0.36px] text-white">
           Changes since last snoop
         </p>
-        <p className="pt-2 text-[10px] leading-[14px] tracking-[0.5px] text-gray">
+        <p className="pt-2 text-sm leading-[14px] tracking-[0.5px] text-gray">
           Updates since last snoop on may 12th 2023 10pm
         </p>
 
@@ -131,24 +131,24 @@ export default function Profile() {
         </div>
 
         <div className="pt-10 flex items-center gap-4 sm:mx-3">
-          <p className="pr-2 text-xs leading-[14.4px] tracking-[0.7px] text-white font-medium">
+          <p className="pr-2 text-base leading-[14.4px] tracking-[0.7px] text-white font-medium">
             Filter
           </p>
           <button
             type="button"
-            className="bg-lightgray border-[0.5px] border-lightgrayborder text-white px-3 py-[6px] text-[10px] font-bold tracking-[0.2px]"
+            className="bg-lightgray border-[0.5px] border-lightgrayborder text-white px-3 py-[6px] text-sm font-bold tracking-[0.2px]"
           >
             Daily
           </button>
           <button
             type="button"
-            className="bg-purple border-[0.5px] border-purple text-white px-3 py-[6px] text-[10px] font-bold tracking-[0.2px]"
+            className="bg-purple border-[0.5px] border-purple text-white px-3 py-[6px] text-sm font-bold tracking-[0.2px]"
           >
             Weekly
           </button>
           <button
             type="button"
-            className="bg-lightgray border-[0.5px] border-lightgrayborder text-white px-3 py-[6px] text-[10px] font-bold tracking-[0.2px]"
+            className="bg-lightgray border-[0.5px] border-lightgrayborder text-white px-3 py-[6px] text-sm font-bold tracking-[0.2px]"
           >
             Monthly
           </button>
@@ -167,7 +167,7 @@ export default function Profile() {
         <div className="flex overflow-x-auto no-scrollbar gap-[10px]">
           <div className="flex flex-col gap-[6px]">
             <div className="min-w-[150px] mb-[2px] px-3 py-1 border border-lightgrayborder flex items-center justify-center">
-              <p className="text-white font-bold text-[10px] tracking-[0.2px]">
+              <p className="text-white font-bold text-sm tracking-[0.2px]">
                 Mon 27.04.2023
               </p>
             </div>
@@ -176,7 +176,7 @@ export default function Profile() {
           </div>
           <div className="flex flex-col gap-[6px]">
             <div className="min-w-[150px] mb-[2px] px-3 py-1 border border-purple bg-purple flex items-center justify-center">
-              <p className="text-white font-bold text-[10px] tracking-[0.2px]">
+              <p className="text-white font-bold text-sm tracking-[0.2px]">
                 Tue 28.04.2023
               </p>
             </div>
@@ -192,35 +192,35 @@ export default function Profile() {
           </div>
           <div className="flex flex-col gap-[6px]">
             <div className="min-w-[150px] mb-[2px] px-3 py-1 border border-lightgrayborder flex items-center justify-center">
-              <p className="text-lightgrayborder font-bold text-[10px] tracking-[0.2px]">
+              <p className="text-lightgrayborder font-bold text-sm tracking-[0.2px]">
                 Wed 29.04.2023
               </p>
             </div>
           </div>
           <div className="flex flex-col gap-[6px]">
             <div className="min-w-[150px] mb-[2px] px-3 py-1 border border-lightgrayborder flex items-center justify-center">
-              <p className="text-lightgrayborder font-bold text-[10px] tracking-[0.2px]">
+              <p className="text-lightgrayborder font-bold text-sm tracking-[0.2px]">
                 Thu 30.04.2023
               </p>
             </div>
           </div>
           <div className="flex flex-col gap-[6px]">
             <div className="min-w-[150px] mb-[2px] px-3 py-1 border border-lightgrayborder flex items-center justify-center">
-              <p className="text-lightgrayborder font-bold text-[10px] tracking-[0.2px]">
+              <p className="text-lightgrayborder font-bold text-sm tracking-[0.2px]">
                 Fri 01.05.2023
               </p>
             </div>
           </div>
           <div className="flex flex-col gap-[6px]">
             <div className="min-w-[150px] mb-[2px] px-3 py-1 border border-lightgrayborder flex items-center justify-center">
-              <p className="text-lightgrayborder font-bold text-[10px] tracking-[0.2px]">
+              <p className="text-lightgrayborder font-bold text-sm tracking-[0.2px]">
                 Sat 02.05.2023
               </p>
             </div>
           </div>
           <div className="flex flex-col gap-[6px] pr-4 sm:pr-0">
-            <div className="min-w-[150px] mb-[2px] px-3 py-1 border border-lightgrayborder flex items-center justify-center">
-              <p className="text-lightgrayborder font-bold text-[10px] tracking-[0.2px]">
+            <div className="min-w-[150px] sm:min-w-[200px] mb-[2px] px-3 py-1 border border-lightgrayborder flex items-center justify-center">
+              <p className="text-lightgrayborder font-bold text-sm tracking-[0.2px]">
                 Sun 03.05.2023
               </p>
             </div>
@@ -251,16 +251,18 @@ const Card = ({
   desc: string;
   detail?: string;
 }) => (
-  <div className="min-w-[150px] p-2 flex flex-col gap-1 bg-lightgray border-[0.5px] border-lightgrayborder">
-    <div className="flex gap-2">
+  <div className="min-w-[150px] sm:min-w-[200px] px-4 py-3 flex flex-col gap-2 bg-lightgray border-[0.5px] border-lightgrayborder">
+    <div className="flex gap-2 items-center">
       {icon}
-      <p className="text-xs font-bold text-white tracking-[0.24px]">{title}</p>
+      <p className="text-base font-bold text-white tracking-[0.24px]">
+        {title}
+      </p>
     </div>
-    <p className="text-xs leading-[16.8px] tracking-[0.6px] text-white">
+    <p className="text-base leading-[16.8px] tracking-[0.6px] text-white">
       {desc}
     </p>
     {detail ? (
-      <p className="text-[10px] text-gray leading-[14px] tracking-[0.5px]">
+      <p className="text-sm text-gray leading-[14px] tracking-[0.5px]">
         {detail}
       </p>
     ) : null}
@@ -322,7 +324,7 @@ const Dropdown = ({
     >
       <SelectTrigger className="w-[180px]">
         {option.icon}
-        <p className="flex-1 text-[10px] font-bold text-white tracking-[0.2px] text-left">
+        <p className="flex-1 text-sm font-bold text-white tracking-[0.2px] text-left">
           {option.label}
         </p>
         <ChevronDown />
@@ -332,7 +334,7 @@ const Dropdown = ({
           <SelectItem value={option.name} key={option.name}>
             <div className="flex gap-2" key={option.name}>
               {option.icon}
-              <p className="flex-1 text-[10px] font-bold text-white tracking-[0.2px]">
+              <p className="flex-1 text-sm font-bold text-white tracking-[0.2px]">
                 {option.label}
               </p>
             </div>
