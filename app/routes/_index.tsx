@@ -11,13 +11,12 @@ import { Reddit } from "~/components/reddit";
 import { Search } from "~/components/search";
 import { Tiktok } from "~/components/tiktok";
 import { Twitter } from "~/components/twitter";
-
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
-} from "../components/ui/select";
+} from "~/components/ui/select";
 
 const dropdowns = [
   {
